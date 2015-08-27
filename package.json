@@ -10,6 +10,6 @@
     "morgan": "^1.6.1"
   }
 }
-//opop
+//opo
 //npm install <package> --save -> this has to be done to save the newly installed packages into package.json
 //npm init will install package.json automaticaly 
