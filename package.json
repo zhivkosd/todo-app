@@ -1,8 +1,12 @@
 {
-  "name"         : "todo-app",
-  "version"      : "0.0.1",
-  "description"  : "Make To Do's",
-  "main"         : "server.js",
-  "author"       : "Jikardo",
-  "dependencies" : {}
+  "name": "todo-app",
+  "version": "0.0.1",
+  "description": "Make To Do's",
+  "main": "server.js",
+  "author": "Jikardo",
+  "dependencies": {
+    "express": "~4.*.*",
+    "mongoose": "~4.*.*",
+    "morgan": "^1.6.1"
+  }
 }
