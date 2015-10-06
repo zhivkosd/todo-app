@@ -9,11 +9,30 @@ function getTodos (res) {
 
 module.exports = function(app) {
 	app.get('/api/todos', function(req, res){
-		console.log('GetTodos');
 		getTodos(res);
 	});
 
-	// app.get('/', function(req, res){
-	// 	console.log('rtrtrtrt');
-	// });
+	app.post('/api/todos', function(req, res){
+		todoModel.create({
+			notes: req.body.notes,
+			priority: req.body.priority,
+			remind: req.body.remind,
+			remindDate: req.body.remindDate,
+			status: req.body.status,
+			text: req.body.text,
+			userId: req.body.userId
+		}, function(err, data){
+			if (err) res.send(err);
+			getTodos(res);
+		});
+	});
+
+	app.delete('/api/todos/:todo_id',function(req, res){
+		todoModel.remove({
+			_id: req.params.todo_id
+		}, function(err, data){
+			if (err) res.send(err);
+			getTodos(res);
+		});
+	});
 };
