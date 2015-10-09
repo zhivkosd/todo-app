@@ -7,6 +7,7 @@ angular.module('todoController',[])
 
 		$scope.createTodo = function(){
 			if ($scope.formData.text) {
+				console.log('formData',$scope.formData);
 				Todos.create($scope.formData)
 					.success(function(data){
 						$scope.formData = {};

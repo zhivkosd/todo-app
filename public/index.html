@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 	<script type="text/javascript" src='js/controllers/main.js'></script>
 	<script type="text/javascript" src='js/services/todos.js'></script>
@@ -19,32 +20,60 @@
 	<div class="jumbotron text-center">
 		<h1>You have <span class="label label-info">{{todos.length}}</span> things to finish</h1>
 	</div>
-	
-	<div id="todo-list" class="row">
-		<div class="col-sm-4 col-sm-offset-4">
-			<div class="checkbox" ng-repeat="todo in todos">
-				<label>
-					<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-				</label>
+	<div class='container'>
+
+		<div id="todo-form" class="row">
+			<!-- <div class="col-sm-3 col-sm-offset-2 text-center"> -->
+				<form class='form-inline'>
+					<div class="form-group">
+						<input type="text" class="form-control input-lg text-center" placeholder="Add a task" ng-model="formData.text">
+						<!-- <input type="checkbox"><label>Remind on a date</label> -->
+					</div>
+					<div class="form-group">
+					  <textarea class="form-control" placeholder='Notes' ng-model="formData.notes"></textarea>
+					</div>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-primary btn-lg">Priority</button>
+					  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="#">low</a></li>
+					    <li><a href="#">medium</a></li>
+					    <li><a href="#">high</a></li>
+					  </ul>
+					</div>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-primary btn-lg">Status</button>
+					  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="#">ToDo</a></li>
+					    <li><a href="#">Done</a></li>
+					  </ul>
+					</div>
+					<button type="button" class="btn btn-primary btn-lg" ng-model="formData.remind" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Remind me</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+				<!-- </form> -->
 			</div>
-
-			<p class="text-center" ng-show="loading">
-				<span class="fa fa-spinner fa-spin fa-3x"></span>
-			</p>
-
 		</div>
-	</div>
 
-	<div id="todo-form" class="row">
-		<div class="col-sm-3 col-sm-offset-2 text-center">
-			<form>
-				<div class="form-group">
-					<input type="text" class="form-control input-lg text-center" placeholder="Add a task" ng-model="formData.text">
-					<!-- <input type="checkbox"><label>Remind on a date</label> -->
+		<div id="todo-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="checkbox" ng-repeat="todo in todos">
+					<label>
+						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+					</label>
 				</div>
-				<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-			</form>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</div>
 		</div>
+		
 	</div>
 </body>
 </html>
