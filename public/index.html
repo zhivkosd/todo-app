@@ -13,6 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 	<script type="text/javascript" src='js/controllers/main.js'></script>
+	<script type="text/javascript" src='js/controllers/buttons.js'></script>
 	<script type="text/javascript" src='js/services/todos.js'></script>
 	<script type="text/javascript" src="js/core.js"></script>
 </head>
@@ -32,30 +33,21 @@
 					<div class="form-group">
 					  <textarea class="form-control" placeholder='Notes' ng-model="formData.notes"></textarea>
 					</div>
-					<div class="btn-group">
-					  <button type="button" class="btn btn-primary btn-lg">Priority</button>
+					<div class="btn-group" ng-controller='btnController as btnCtrl'>
+					  <button type="button" class="btn btn-primary btn-lg" ng-click="formData.priority = false">Priority</button>
 					  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
 					    <span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu" role="menu">
-					    <li><a href="#">low</a></li>
-					    <li><a href="#">medium</a></li>
-					    <li><a href="#">high</a></li>
+					    <li ng-repeat="priority in priorities">
+					      <a href="#" ng-click="formData.priority = selectedPriority(priority)">{{priority.type}}</a>
+					    </li>
 					  </ul>
 					</div>
-					<div class="btn-group">
-					  <button type="button" class="btn btn-primary btn-lg">Status</button>
-					  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-					    <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-					    <li><a href="#">ToDo</a></li>
-					    <li><a href="#">Done</a></li>
-					  </ul>
-					</div>
-					<button type="button" class="btn btn-primary btn-lg" ng-model="formData.remind" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Remind me</button>
+					<div ng-show='formData.priority'>{{formData.priority.label}}</div>
+					<!-- <button type="button" class="btn btn-primary btn-lg" ng-model="formData.remind" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Remind me</button> -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-				<!-- </form> -->
+				</form>
 			</div>
 		</div>
 

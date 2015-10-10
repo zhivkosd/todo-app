@@ -1,5 +1,7 @@
 angular.module('todoController',[])
 	.controller('mainController', ['$scope', '$http', 'Todos', function($scope, $http, Todos){
+		$scope.formData = {};
+		
 		Todos.get()
 			.success(function(data) {
 				$scope.todos = data;
