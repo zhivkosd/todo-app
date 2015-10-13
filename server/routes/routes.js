@@ -15,7 +15,7 @@ module.exports = function(app) {
 	app.post('/api/todos', function(req, res){
 		todoModel.create({
 			notes: req.body.notes,
-			priority: req.body.priority,
+			priority: req.body.priority.type,
 			remind: req.body.remind,
 			remindDate: req.body.remindDate,
 			status: req.body.status,

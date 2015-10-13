@@ -33,18 +33,30 @@
 					<div class="form-group">
 					  <textarea class="form-control" placeholder='Notes' ng-model="formData.notes"></textarea>
 					</div>
-					<div class="btn-group" ng-controller='btnController as btnCtrl'>
-					  <button type="button" class="btn btn-primary btn-lg" ng-click="formData.priority = false">Priority</button>
-					  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-					    <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-					    <li ng-repeat="priority in priorities">
-					      <a href="#" ng-click="formData.priority = selectedPriority(priority)">{{priority.type}}</a>
-					    </li>
-					  </ul>
+					<div class='form-group' ng-controller='btnController as btnCtrl'>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-primary btn-lg" ng-click="formData.priority = false">Priority {{formData.priority.label}}</button>
+						  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li ng-repeat="priority in priorities">
+						      <a href="#" ng-click="formData.priority = selectedPriority(priority)">{{priority.type}}</a>
+						    </li>
+						  </ul>
+						</div>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-primary btn-lg">Status</button>
+						  <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li><a href="#">ToDo</a></li>
+						    <li><a href="#">Done</a></li>
+						  </ul>
+						</div>	
 					</div>
-					<div ng-show='formData.priority'>{{formData.priority.label}}</div>
+			      	<span ng-show='formData.priority'>{{formData.priority.label}}</span>
 					<!-- <button type="button" class="btn btn-primary btn-lg" ng-model="formData.remind" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Remind me</button> -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
 				</form>
