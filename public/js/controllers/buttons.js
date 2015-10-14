@@ -14,6 +14,12 @@ angular.module('buttonController',[]).controller('btnController', ['$scope', fun
 		label: 'Priority'
 	};
 
+	$scope.condition = ['To Do', 'Done'];
+
+	$scope.selectedCondition = function(status) {
+		return status;
+	};
+
 	$scope.selectedPriority = function(priority) {
 		$scope.btnLabel = priority.label;
 		return priority;
