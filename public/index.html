@@ -2,15 +2,24 @@
 <html ng-app='todoApp'>
 <head>
 	<title>ToDo</title>
-	<!-- Latest compiled and minified CSS -->
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 	 
+	<!-- ... -->
+	  <!-- // <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script> -->
+	  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+	  <!-- // <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	  <!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
+	  <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  	<!-- .... -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 	<script type="text/javascript" src='js/controllers/main.js'></script>
 	<script type="text/javascript" src='js/controllers/buttons.js'></script>
@@ -59,6 +68,16 @@
 						</div>	
 						<span ng-show='formData.status'>{{formData.status}}</span>
 					</div>
+					<fieldset>
+						<legend>Remind me on:</legend>
+						<div class="control-group">
+					        <label class="control-label input-label" for="startTime">Start :</label>
+					        <div class="controls bootstrap-timepicker">
+					            <input type="text" class="datetime" type="text" id="startTime" name="startTime" placeholder="Start Time" />
+					            <i class="icon-time"></i>
+					        </div>
+					    </div>
+					</fieldset>
 					<!-- <button type="button" class="btn btn-primary btn-lg" ng-model="formData.remind" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Remind me</button> -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
 				</form>
