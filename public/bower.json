@@ -1,7 +1,7 @@
 {
   "name": "bower_todo",
   "description": "Make To Do's",
-  "main": "server.js",
+  "main": "app.js",
   "authors": [
     "Jikardo"
   ],
