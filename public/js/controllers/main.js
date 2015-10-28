@@ -24,4 +24,8 @@ angular.module('todoController',[])
 					$scope.todos = data;
 				});
 		}
+
+		$(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
 	}]);
