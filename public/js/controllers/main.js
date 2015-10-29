@@ -27,5 +27,8 @@ angular.module('todoController',[])
 
 		$(function () {
             $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker1').on('dp.change', function(){
+            	console.log('aaa',arguments);
+            });
         });
 	}]);
