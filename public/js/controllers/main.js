@@ -27,8 +27,8 @@ angular.module('todoController',[])
 
 		$(function () {
             $('#datetimepicker1').datetimepicker();
-            $('#datetimepicker1').on('dp.change', function(){
-            	console.log('aaa',arguments);
+            $('#datetimepicker1').on('dp.change', function(e){
+            	$scope.formData.remindDate = e.date._d;
             });
         });
 	}]);
